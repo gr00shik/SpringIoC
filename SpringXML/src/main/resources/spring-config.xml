@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="class3" class="com.gr00shik.beans.Class3">
+        <property name="message" value="message"/>
+    </bean>
+
+    <bean name="class2" class="com.gr00shik.beans.Class2" autowire="constructor" init-method="init" destroy-method="destroy"
+    depends-on="class3" lazy-init="true" scope="singleton"></bean>
+
+    <bean name="class1" class="com.gr00shik.beans.Class1">
+        <constructor-arg name="name" value="NAME"/>
+        <constructor-arg name="sname" value="SNAME"/>
+        <constructor-arg name="age" value="100"/>
+    </bean>
+
+</beans>
